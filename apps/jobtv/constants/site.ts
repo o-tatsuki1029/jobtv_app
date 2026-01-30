@@ -10,14 +10,20 @@ export const SITE_DESCRIPTION =
   "JOBTVは新卒採用をする企業の就活情報を動画で探せるサービスです。企業密着、社員インタビュー、職場見学など、リアルな情報を無料で視聴できます。";
 
 // URL関連
-export const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL || "https://jobtv.jp";
+import { getSiteUrl, getFullSiteUrl } from "@jobtv-app/shared/utils/dev-config";
+
+// プロトコルなしのサイトURL（環境変数から取得、デフォルトはlocalhost:3002）
+const SITE_URL_WITHOUT_PROTOCOL = getSiteUrl(3002);
+
+// プロトコル付きのサイトURL（メタデータなどで使用）
+export const SITE_URL = `https://${SITE_URL_WITHOUT_PROTOCOL}`;
 
 // SNSアカウント
 export const TWITTER_HANDLE = "@jobtv";
 export const TWITTER_SITE = "@jobtv";
 
 // 画像URL
-export const OGP_IMAGE = `${SITE_URL}/ogp-image.jpg`;
+export const OGP_IMAGE = `https://${SITE_URL}/ogp-image.jpg`;
 export const LOGO_URL = "https://jobtv.jp/assets/logo.svg";
 
 // SEOキーワード

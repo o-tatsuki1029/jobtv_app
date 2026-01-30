@@ -1,7 +1,7 @@
 "use server";
 
 import { supabaseInsert, supabaseUpdate, supabaseSelect, supabaseDelete, SupabaseResult } from "./supabase-actions";
-import { Database } from "@/types/database.types";
+import { Database } from "@jobtv-app/shared/types";
 
 type EventRow = Database["public"]["Tables"]["events"]["Row"];
 type EventInsert = Database["public"]["Tables"]["events"]["Insert"];

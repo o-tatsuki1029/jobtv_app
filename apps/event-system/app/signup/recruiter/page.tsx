@@ -11,7 +11,7 @@ import {
   SelectInput,
 } from "@/components/ui/form/FormField";
 import { isKatakana } from "@/utils/validation/index";
-import { translateAuthError } from "@/utils/auth/errors";
+import { translateAuthError } from "@jobtv-app/shared/auth";
 import {
   validateEmail,
   validatePassword,

@@ -1,6 +1,7 @@
 /**
  * データベース型の拡張定義
  * Supabaseの自動生成型から派生した拡張型を定義
+ * 共通の拡張型を全アプリで使用できるようにする
  */
 
 import type { Tables } from "./database.types";
@@ -48,3 +49,7 @@ export interface InterviewNoteWithRelations extends CAInterview {
   createdByProfile?: Profile | null;
   updatedByProfile?: Profile | null;
 }
+
+// 後方互換性のためのエイリアス
+export type InterviewNote = CAInterview;
+

@@ -7,7 +7,7 @@ import { FormField, TextInput, SelectInput } from "@/components/ui/form/FormFiel
 import Button from "@/components/ui/Button";
 import { createClient } from "@/lib/supabase/client";
 import { useMasterData } from "@/hooks/useMasterData";
-import type { Database } from "@/types/database.types";
+import type { Database } from "@jobtv-app/shared/types";
 
 type MasterEventType = Database["public"]["Tables"]["master_event_types"]["Row"];
 

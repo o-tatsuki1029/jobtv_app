@@ -1,6 +1,6 @@
 import { RecruiterHeaderContent } from "@/components/recruiter-layout-header";
 import SidebarWrapper from "@/components/sidebar-wrapper";
-import { requireRecruiterOrAdmin } from "@/utils/auth/require-auth";
+import { requireRecruiterOrAdmin } from "@jobtv-app/shared/auth";
 
 export default async function RecruiterLayout({
   children,

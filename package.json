@@ -8,7 +8,8 @@
     "build": "turbo run build",
     "start": "turbo run start",
     "lint": "turbo run lint",
-    "types": "turbo run types"
+    "types": "supabase gen types typescript --project-id tdewumilkltljbqryjpg > packages/shared/types/database.types.ts",
+    "types:all": "turbo run types"
   },
   "devDependencies": {
     "turbo": "^2.0.0"

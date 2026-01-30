@@ -1,6 +1,7 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
 import { hasEnvVars } from "../utils";
+import { shouldSkipZeroTrustCheck } from "@jobtv-app/shared/utils/dev-config";
 
 export async function updateSession(request: NextRequest) {
   let supabaseResponse = NextResponse.next({
@@ -50,9 +51,7 @@ export async function updateSession(request: NextRequest) {
   // 認証チェックは各ページのサーバーコンポーネントで行うことを推奨します。
   //
   // 開発環境でZerotrustを回避する場合は、環境変数 SKIP_ZEROTRUST_CHECK を設定してください
-  const skipZeroTrustCheck =
-    process.env.NODE_ENV === "development" &&
-    process.env.SKIP_ZEROTRUST_CHECK === "true";
+  const skipZeroTrustCheck = shouldSkipZeroTrustCheck();
 
   if (!skipZeroTrustCheck) {
     try {

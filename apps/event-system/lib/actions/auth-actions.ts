@@ -3,8 +3,10 @@
 import { createClient } from "@/lib/supabase/server";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { getRedirectPathByRole } from "@/utils/auth/index";
-import { translateAuthError } from "@/utils/auth/errors";
+import {
+  getRedirectPathByRole,
+  translateAuthError,
+} from "@jobtv-app/shared/auth";
 
 /**
  * ログアウト処理
@@ -34,7 +36,6 @@ export async function loginAction(formData: FormData) {
   }
 
   const supabase = await createClient();
-
   const { data, error: signInError } = await supabase.auth.signInWithPassword({
     email,
     password,
@@ -90,7 +91,6 @@ export async function resetPasswordAction(formData: FormData) {
   }
 
   const supabase = await createClient();
-
   const { error: resetError } = await supabase.auth.resetPasswordForEmail(
     email,
     {

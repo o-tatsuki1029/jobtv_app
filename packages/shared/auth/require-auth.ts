@@ -1,18 +1,10 @@
 import { redirect } from "next/navigation";
-import { createClient } from "@/lib/supabase/server";
-import { UserRole } from "./index";
-import { getRedirectPathByRole } from "./index";
+import { createClient } from "@jobtv-app/shared/supabase/server";
 import { cookies } from "next/headers";
+import type { UserRole, UserInfo } from "./types";
+import { getRedirectPathByRole } from "./redirect";
 
-interface UserInfo {
-  role: UserRole;
-  userId: string;
-  email: string | undefined;
-  recruiterId?: string;
-  companyId?: string;
-}
-
-async function getUserInfo(): Promise<UserInfo | null> {
+async function getUserInfoInternal(): Promise<UserInfo | null> {
   const supabase = await createClient();
   const { data: { user }, error: getUserError } = await supabase.auth.getUser();
 
@@ -45,11 +37,12 @@ async function getUserInfo(): Promise<UserInfo | null> {
     email: user.email,
     recruiterId,
     companyId,
+    isAdmin: role === "admin",
   };
 }
 
 export async function requireAuth(): Promise<UserInfo> {
-  const userInfo = await getUserInfo();
+  const userInfo = await getUserInfoInternal();
   if (!userInfo) {
     redirect("/login");
   }
@@ -81,3 +74,4 @@ export async function requireCandidate(): Promise<string> {
   }
   return candidateId;
 }
+

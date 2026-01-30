@@ -1,6 +1,6 @@
 import { CandidateHeaderContent } from "@/components/candidate-layout-header";
 import SidebarWrapper from "@/components/sidebar-wrapper";
-import { getUserInfo } from "@/utils/auth/get-user-info";
+import { getUserInfo } from "@jobtv-app/shared/auth";
 import { cookies } from "next/headers";
 
 export default async function CandidateLayout({

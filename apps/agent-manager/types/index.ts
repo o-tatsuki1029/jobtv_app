@@ -3,7 +3,7 @@
  * 自動生成型と拡張型の両方をエクスポート
  */
 
-// Supabaseの自動生成型を再エクスポート
+// Supabaseの自動生成型を再エクスポート（共通パッケージから）
 export type {
   Database,
   Tables,
@@ -12,9 +12,9 @@ export type {
   Json,
   Enums,
   CompositeTypes,
-} from "./database.types";
+} from "@jobtv-app/shared/types";
 
-// 拡張型をエクスポート
+// 拡張型を再エクスポート（共通パッケージから）
 export type {
   Profile,
   Candidate,
@@ -28,7 +28,5 @@ export type {
   ApplicationWithRelations,
   ProgressItemWithRelations,
   InterviewNoteWithRelations,
-} from "./database-extensions";
-
-// 後方互換性のためのエイリアス
-export type { CAInterview as InterviewNote } from "./database-extensions";
+  InterviewNote,
+} from "@jobtv-app/shared/types";

@@ -1,5 +1,5 @@
 import { Database } from "@/types/database.types";
-import { ROLE_LABELS as AUTH_ROLE_LABELS } from "@/utils/auth/index";
+import { ROLE_LABELS as AUTH_ROLE_LABELS } from "@jobtv-app/shared/auth";
 
 // users テーブルは profiles テーブルに統合されました
 export type User = Database["public"]["Tables"]["profiles"]["Row"];

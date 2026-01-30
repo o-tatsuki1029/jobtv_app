@@ -1,5 +1,5 @@
 import CandidateRatingPageClient from "./page-client";
-import { getUserInfo } from "@/utils/auth/get-user-info";
+import { getUserInfo } from "@jobtv-app/shared/auth";
 import { getCandidateSession } from "@/utils/api/routes/candidate-session";
 import { getCandidateInfo } from "@/utils/api/routes/candidate-info";
 import { getCandidateEvents } from "@/utils/api/routes/candidate-events";

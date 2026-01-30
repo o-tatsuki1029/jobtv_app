@@ -8,7 +8,13 @@
     "./supabase": "./supabase/index.ts",
     "./supabase/client": "./supabase/client.ts",
     "./supabase/server": "./supabase/server.ts",
-    "./types": "./types/index.ts"
+    "./types": "./types/index.ts",
+    "./types/database": "./types/database.types.ts",
+    "./types/database-extensions": "./types/database-extensions.ts",
+    "./auth": "./auth/index.ts",
+    "./actions": "./actions/index.ts",
+    "./actions/auth": "./actions/auth-actions.ts",
+    "./utils/dev-config": "./utils/dev-config.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",

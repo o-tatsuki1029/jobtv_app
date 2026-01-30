@@ -1,5 +1,5 @@
 import EventSelectionPageClient from "./page-client";
-import { getUserInfo } from "@/utils/auth/get-user-info";
+import { getUserInfo } from "@jobtv-app/shared/auth";
 
 export default async function EventSelectionPage() {
   // 認証チェックはレイアウトで実施済み

@@ -1,5 +1,5 @@
-import { createClient } from "@/lib/supabase/server";
-import { UserRole, UserInfo } from "./index";
+import { createClient } from "@jobtv-app/shared/supabase/server";
+import type { UserRole, UserInfo } from "./types";
 
 /**
  * 認証済みユーザーの情報を取得（認証チェックは行わない）

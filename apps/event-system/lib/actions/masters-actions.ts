@@ -1,7 +1,7 @@
 "use server";
 
 import { supabaseSelect } from "./supabase-actions";
-import { Database } from "@/types/database.types";
+import { Database } from "@jobtv-app/shared/types";
 
 type MasterArea = Database["public"]["Tables"]["master_areas"]["Row"];
 type MasterGraduationYear = Database["public"]["Tables"]["master_graduation_years"]["Row"];

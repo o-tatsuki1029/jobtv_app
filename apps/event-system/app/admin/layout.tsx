@@ -1,6 +1,6 @@
 import { AdminHeaderContent } from "@/components/admin-layout-header";
 import SidebarWrapper from "@/components/sidebar-wrapper";
-import { requireAdmin } from "@/utils/auth/require-auth";
+import { requireAdmin } from "@jobtv-app/shared/auth";
 
 export default async function AdminLayout({
   children,

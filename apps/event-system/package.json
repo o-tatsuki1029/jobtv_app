@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start -p 3001",
     "lint": "eslint",
-    "types": "npx supabase gen types typescript --project-id tdewumilkltljbqryjpg > types/database.types.ts"
+    "types": "echo '型定義はルートのnpm run typesで生成されます'"
   },
   "dependencies": {
     "@jobtv-app/shared": "workspace:*",

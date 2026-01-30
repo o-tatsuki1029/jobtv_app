@@ -3,7 +3,7 @@ import { Suspense } from "react";
 import Button from "@/components/ui/Button";
 import { cookies } from "next/headers";
 import { getAdminClient } from "@/lib/supabase/admin";
-import { ROLE_LABELS } from "@/utils/auth/index";
+import { ROLE_LABELS } from "@jobtv-app/shared/auth";
 import { redirect } from "next/navigation";
 
 async function CandidateLogoutForm() {

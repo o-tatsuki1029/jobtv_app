@@ -1,6 +1,5 @@
 import { useState, useCallback } from "react";
 import { createClient } from "@/lib/supabase/client";
-import type { PostgrestFilterBuilder } from "@supabase/postgrest-js";
 
 type UseDataFetchOptions<T> = {
   table: string;
@@ -18,12 +17,9 @@ export function useDataFetch<T = unknown>(options: UseDataFetchOptions<T>) {
   const [error, setError] = useState<string | null>(null);
 
   const fetchData = useCallback(
-      async (
-      queryBuilder?: (
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-        query: PostgrestFilterBuilder<any, any, any, any, any, any, any>
-        // eslint-disable-next-line @typescript-eslint/no-explicit-any
-      ) => PostgrestFilterBuilder<any, any, any, any, any, any, any>
+    async (
+      // eslint-disable-next-line @typescript-eslint/no-explicit-any
+      queryBuilder?: (query: any) => any
     ) => {
       setIsLoading(true);
       setError(null);

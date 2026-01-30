@@ -2,7 +2,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import { Database, Tables, TablesInsert, TablesUpdate } from "@/types/database.types";
+import { Database, Tables, TablesInsert, TablesUpdate } from "@jobtv-app/shared/types";
 
 // --------------------------------------------
 // 共通の返却型

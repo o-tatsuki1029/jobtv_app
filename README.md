@@ -23,30 +23,63 @@ pnpm install
 
 Monorepo では、共通の環境変数をルートの`.env.local`に設定できます。
 
-1. **共通環境変数の設定**:
+1. **共通環境変数の設定（ルートの`.env.local`）**:
 
    ```bash
-   # ルートに.env.localを作成（.env.exampleを参考に）
-   cp .env.example .env.local
-   # 実際の値を設定
+   # 開発環境用の設定（全アプリ共通）
+   SKIP_ZEROTRUST_CHECK=true
+   NODE_TLS_REJECT_UNAUTHORIZED=0
+
+   # Supabase設定（各アプリで個別に設定が必要）
+   # 注意: ルートに共通で設定するとjobtvが動かなくなる可能性があります
+   # 各アプリの.env.localに個別に設定してください
    ```
 
-2. **各アプリ固有の環境変数**:
-   - 各アプリのディレクトリ（`apps/{app-name}/.env.local`）に設定
-   - ルートの`.env.local`と各アプリの`.env.local`の両方が読み込まれます
-   - 同じ変数名がある場合、各アプリの`.env.local`が優先されます
+2. **各アプリ固有の環境変数（`apps/{app-name}/.env.local`）**:
 
-**共通化できる環境変数**:
+   **agent-manager** (`apps/agent-manager/.env.local`):
 
-- `NEXT_PUBLIC_SUPABASE_URL`
-- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`
-- `SUPABASE_SERVICE_ROLE_KEY`（event-system で使用）
+   ```bash
+   NEXT_PUBLIC_SUPABASE_URL=https://tdewumilkltljbqryjpg.supabase.co
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=eyJ...
+   BASIC_AUTH_USER=admin
+   BASIC_AUTH_PASSWORD=test
+   ```
+
+   **event-system** (`apps/event-system/.env.local`):
+
+   ```bash
+   NEXT_PUBLIC_SUPABASE_URL=https://tdewumilkltljbqryjpg.supabase.co
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=eyJ...
+   SUPABASE_SERVICE_ROLE_KEY=eyJ...
+   BASIC_AUTH_USERNAME=admin
+   BASIC_AUTH_PASSWORD=test
+   ```
+
+   **jobtv** (`apps/jobtv/.env.local`):
+
+   ```bash
+   NEXT_PUBLIC_SUPABASE_URL=https://tdewumilkltljbqryjpg.supabase.co
+   NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY=eyJ...
+   NEXT_PUBLIC_SITE_URL=localhost:3002
+   # 注意: プロトコル（http://）は不要です
+   ```
+
+**注意事項**:
+
+- `NEXT_PUBLIC_SUPABASE_URL`と`NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`は各アプリで個別に設定してください（ルートに共通で設定すると jobtv が動かなくなる可能性があります）
+- `NEXT_PUBLIC_SITE_URL`はプロトコル（`http://`や`https://`）を含めないでください
+- 開発環境用の設定（`SKIP_ZEROTRUST_CHECK`、`NODE_TLS_REJECT_UNAUTHORIZED`）は共通パッケージで統一管理されています
 
 ## 開発
 
 ### 全アプリを並列起動
 
 ```bash
+# pnpmがインストールされていない場合（推奨）
+npx pnpm@latest dev
+
+# または、pnpmがインストールされている場合
 pnpm dev
 ```
 
@@ -60,29 +93,31 @@ pnpm dev
 
 ```bash
 # agent-managerのみ
-pnpm --filter agent-manager dev
+npx pnpm@latest --filter agent-manager dev
 
 # event-systemのみ
-pnpm --filter event-system dev
+npx pnpm@latest --filter event-system dev
 
 # jobtvのみ
-pnpm --filter jobtv dev
+npx pnpm@latest --filter jobtv dev
 ```
+
+**注意**: `pnpm`コマンドが見つからない場合は、すべてのコマンドで`npx pnpm@latest`を使用してください。
 
 ## ビルド
 
 ### 全アプリをビルド
 
 ```bash
-pnpm build
+npx pnpm@latest build
 ```
 
 ### 個別のアプリをビルド
 
 ```bash
-pnpm --filter agent-manager build
-pnpm --filter event-system build
-pnpm --filter jobtv build
+npx pnpm@latest --filter agent-manager build
+npx pnpm@latest --filter event-system build
+npx pnpm@latest --filter jobtv build
 ```
 
 ## 型定義の生成
@@ -90,15 +125,15 @@ pnpm --filter jobtv build
 ### 全アプリの型定義を生成
 
 ```bash
-pnpm types
+npx pnpm@latest types
 ```
 
 ### 個別のアプリの型定義を生成
 
 ```bash
-pnpm --filter agent-manager types
-pnpm --filter event-system types
-pnpm --filter jobtv types
+npx pnpm@latest --filter agent-manager types
+npx pnpm@latest --filter event-system types
+npx pnpm@latest --filter jobtv types
 ```
 
 ## プロジェクト構造

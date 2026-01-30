@@ -1,4 +1,5 @@
 import { createClient } from "@supabase/supabase-js";
+import { configureDevelopmentTLS } from "@jobtv-app/shared/utils/dev-config";
 
 /**
  * Supabase Admin API用のクライアント（RLSをバイパス）
@@ -17,17 +18,14 @@ export function getAdminClient() {
   }
 
   // Service Role Keyの形式を簡易チェック（通常は`eyJ...`で始まるJWT）
-  if (!supabaseServiceKey.startsWith('eyJ')) {
-    console.warn("SUPABASE_SERVICE_ROLE_KEYの形式が正しくない可能性があります（通常は'eyJ'で始まるJWT形式です）");
+  if (!supabaseServiceKey.startsWith("eyJ")) {
+    console.warn(
+      "SUPABASE_SERVICE_ROLE_KEYの形式が正しくない可能性があります（通常は'eyJ'で始まるJWT形式です）",
+    );
   }
 
-  const skipZeroTrustCheck =
-    process.env.NODE_ENV === "development" &&
-    process.env.SKIP_ZEROTRUST_CHECK === "true";
-
-  if (skipZeroTrustCheck && process.env.NODE_TLS_REJECT_UNAUTHORIZED !== "0") {
-    process.env.NODE_TLS_REJECT_UNAUTHORIZED = "0";
-  }
+  // 開発環境用のTLS設定を適用
+  configureDevelopmentTLS();
 
   try {
     return createClient(supabaseUrl, supabaseServiceKey, {
@@ -38,7 +36,10 @@ export function getAdminClient() {
     });
   } catch (error) {
     console.error("Admin Client作成エラー:", error);
-    throw new Error(`Admin Clientの作成に失敗しました: ${error instanceof Error ? error.message : String(error)}`);
+    throw new Error(
+      `Admin Clientの作成に失敗しました: ${
+        error instanceof Error ? error.message : String(error)
+      }`,
+    );
   }
 }
-

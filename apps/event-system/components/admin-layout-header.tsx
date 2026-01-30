@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { Suspense } from "react";
 import Button from "@/components/ui/Button";
-import { getUserInfo } from "@/utils/auth/get-user-info";
+import { getUserInfo } from "@jobtv-app/shared/auth";
 import { logoutAction } from "@/lib/actions/auth-actions";
 
 function AdminHeaderContent() {

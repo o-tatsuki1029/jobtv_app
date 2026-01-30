@@ -1,25 +1,23 @@
 "use server";
 
-import { createClient } from "@/lib/supabase/server";
 import { revalidatePath } from "next/cache";
+import {
+  signInWithPassword as baseSignInWithPassword,
+  signUp as baseSignUp,
+  signOut as baseSignOut,
+  resetPasswordForEmail as baseResetPasswordForEmail,
+  updatePassword as baseUpdatePassword,
+} from "@jobtv-app/shared/actions/auth";
 
 /**
  * パスワードでサインイン
  */
 export async function signInWithPassword(email: string, password: string) {
-  const supabase = await createClient();
-
-  const { error } = await supabase.auth.signInWithPassword({
-    email,
-    password,
-  });
-
-  if (error) {
-    return { error: error.message };
+  const result = await baseSignInWithPassword(email, password);
+  if (!result.error) {
+    revalidatePath("/", "layout");
   }
-
-  revalidatePath("/", "layout");
-  return { error: null };
+  return result;
 }
 
 /**
@@ -28,39 +26,20 @@ export async function signInWithPassword(email: string, password: string) {
 export async function signUp(
   email: string,
   password: string,
-  redirectTo?: string
+  redirectTo?: string,
 ) {
-  const supabase = await createClient();
-
-  const { error } = await supabase.auth.signUp({
-    email,
-    password,
-    options: {
-      emailRedirectTo: redirectTo,
-    },
-  });
-
-  if (error) {
-    return { error: error.message };
-  }
-
-  return { error: null };
+  return baseSignUp(email, password, redirectTo);
 }
 
 /**
  * サインアウト
  */
 export async function signOut() {
-  const supabase = await createClient();
-
-  const { error } = await supabase.auth.signOut();
-
-  if (error) {
-    return { error: error.message };
+  const result = await baseSignOut();
+  if (!result.error) {
+    revalidatePath("/", "layout");
   }
-
-  revalidatePath("/", "layout");
-  return { error: null };
+  return result;
 }
 
 /**
@@ -68,46 +47,18 @@ export async function signOut() {
  */
 export async function resetPasswordForEmail(
   email: string,
-  redirectTo?: string
+  redirectTo?: string,
 ) {
-  const supabase = await createClient();
-
-  const { error } = await supabase.auth.resetPasswordForEmail(email, {
-    redirectTo,
-  });
-
-  if (error) {
-    return { error: error.message };
-  }
-
-  return { error: null };
+  return baseResetPasswordForEmail(email, redirectTo);
 }
 
 /**
  * パスワードを更新
  */
 export async function updatePassword(password: string) {
-  const supabase = await createClient();
-
-  // セッションを確認
-  const {
-    data: { user },
-    error: userError,
-  } = await supabase.auth.getUser();
-
-  if (userError || !user) {
-    return {
-      error:
-        "セッションが見つかりません。パスワードリセットリンクから再度アクセスしてください。",
-    };
+  const result = await baseUpdatePassword(password);
+  if (!result.error) {
+    revalidatePath("/", "layout");
   }
-
-  const { error } = await supabase.auth.updateUser({ password });
-
-  if (error) {
-    return { error: error.message };
-  }
-
-  revalidatePath("/", "layout");
-  return { error: null };
+  return result;
 }
