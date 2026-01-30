@@ -1,0 +1,43 @@
+{
+  "name": "event-system",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev -p 3001",
+    "build": "next build",
+    "start": "next start -p 3001",
+    "lint": "eslint",
+    "types": "npx supabase gen types typescript --project-id tdewumilkltljbqryjpg > types/database.types.ts"
+  },
+  "dependencies": {
+    "@jobtv-app/shared": "workspace:*",
+    "@supabase/ssr": "^0.8.0",
+    "@supabase/supabase-js": "^2.90.1",
+    "@types/iconv-lite": "^0.0.1",
+    "html2canvas": "^1.4.1",
+    "iconv-lite": "^0.7.0",
+    "jspdf": "^3.0.3",
+    "next": "^16.1.2",
+    "preline": "^3.2.3",
+    "react": "^19.2.3",
+    "react-dom": "^19.2.3",
+    "react-modal": "^3.16.3",
+    "recharts": "^3.4.1"
+  },
+  "devDependencies": {
+    "@eslint/eslintrc": "^3",
+    "@tailwindcss/forms": "^0.5.10",
+    "@tailwindcss/postcss": "^4",
+    "@types/node": "^20",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "@types/react-modal": "^3.16.3",
+    "autoprefixer": "^10.4.21",
+    "eslint": "^9",
+    "eslint-config-next": "^16.1.2",
+    "postcss": "^8.5.6",
+    "supabase": "^2.54.11",
+    "tailwindcss": "^4.1.16",
+    "typescript": "^5"
+  }
+}
