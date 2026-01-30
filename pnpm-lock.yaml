@@ -45,7 +45,7 @@ importers:
         specifier: ^0.8.0
         version: 0.8.0(@supabase/supabase-js@2.93.3)
       '@supabase/supabase-js':
-        specifier: ^2.86.0
+        specifier: ^2.90.1
         version: 2.93.3
       class-variance-authority:
         specifier: ^0.7.1
@@ -57,7 +57,7 @@ importers:
         specifier: ^0.511.0
         version: 0.511.0(react@19.2.3)
       next:
-        specifier: 16.1.2
+        specifier: ^16.1.2
         version: 16.1.2(@babel/core@7.28.6)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       next-themes:
         specifier: ^0.4.6
@@ -112,7 +112,7 @@ importers:
         specifier: ^1.0.7
         version: 1.0.7(tailwindcss@3.4.19)
       typescript:
-        specifier: ^5
+        specifier: ^5.9.3
         version: 5.9.3
 
   apps/event-system:
@@ -200,7 +200,7 @@ importers:
         specifier: ^4.1.16
         version: 4.1.18
       typescript:
-        specifier: ^5
+        specifier: ^5.9.3
         version: 5.9.3
 
   apps/jobtv:
@@ -227,13 +227,13 @@ importers:
         specifier: ^0.562.0
         version: 0.562.0(react@19.2.3)
       next:
-        specifier: 16.1.2
+        specifier: ^16.1.2
         version: 16.1.2(@babel/core@7.28.6)(react-dom@19.2.3(react@19.2.3))(react@19.2.3)
       react:
-        specifier: 19.2.3
+        specifier: ^19.2.3
         version: 19.2.3
       react-dom:
-        specifier: 19.2.3
+        specifier: ^19.2.3
         version: 19.2.3(react@19.2.3)
     devDependencies:
       '@tailwindcss/postcss':
