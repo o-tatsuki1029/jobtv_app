@@ -3,9 +3,11 @@ import { configureDevelopmentTLS } from "@jobtv-app/shared/utils/dev-config";
 
 /**
  * Supabase Admin API用のクライアント（RLSをバイパス）
- * APIルートで使用するための共通ユーティリティ
+ * サーバーサイドで管理者権限が必要な操作を行う際に使用
+ * 
+ * 注意: このクライアントはRLSをバイパスするため、サーバーサイドでのみ使用してください
  */
-export function getAdminClient() {
+export function createAdminClient() {
   const supabaseUrl = process.env.NEXT_PUBLIC_SUPABASE_URL;
   const supabaseServiceKey = process.env.SUPABASE_SERVICE_ROLE_KEY;
 
@@ -14,13 +16,15 @@ export function getAdminClient() {
   }
 
   if (!supabaseServiceKey) {
-    throw new Error("SUPABASE_SERVICE_ROLE_KEY is not set");
+    throw new Error(
+      "SUPABASE_SERVICE_ROLE_KEY is not set. Please add it to your .env.local file."
+    );
   }
 
   // Service Role Keyの形式を簡易チェック（通常は`eyJ...`で始まるJWT）
   if (!supabaseServiceKey.startsWith("eyJ")) {
     console.warn(
-      "SUPABASE_SERVICE_ROLE_KEYの形式が正しくない可能性があります（通常は'eyJ'で始まるJWT形式です）",
+      "SUPABASE_SERVICE_ROLE_KEYの形式が正しくない可能性があります（通常は'eyJ'で始まるJWT形式です）"
     );
   }
 
@@ -39,7 +43,11 @@ export function getAdminClient() {
     throw new Error(
       `Admin Clientの作成に失敗しました: ${
         error instanceof Error ? error.message : String(error)
-      }`,
+      }`
     );
   }
 }
+
+// 後方互換性のためのエイリアス
+export const getAdminClient = createAdminClient;
+

@@ -8,18 +8,25 @@
     "./supabase": "./supabase/index.ts",
     "./supabase/client": "./supabase/client.ts",
     "./supabase/server": "./supabase/server.ts",
+    "./supabase/admin": "./supabase/admin.ts",
     "./types": "./types/index.ts",
     "./types/database": "./types/database.types.ts",
     "./types/database-extensions": "./types/database-extensions.ts",
+    "./types/common-helpers": "./types/common-helpers.ts",
     "./auth": "./auth/index.ts",
+    "./auth/client": "./auth/client.ts",
     "./actions": "./actions/index.ts",
     "./actions/auth": "./actions/auth-actions.ts",
-    "./utils/dev-config": "./utils/dev-config.ts"
+    "./utils/dev-config": "./utils/dev-config.ts",
+    "./utils/cn": "./utils/cn.ts",
+    "./utils/validation": "./utils/validation.ts"
   },
   "dependencies": {
     "@supabase/ssr": "^0.8.0",
     "@supabase/supabase-js": "^2.90.1",
-    "next": "^16.1.2"
+    "clsx": "^2.1.1",
+    "next": "^16.1.2",
+    "tailwind-merge": "^2.6.0"
   },
   "peerDependencies": {
     "react": "^19.2.3",

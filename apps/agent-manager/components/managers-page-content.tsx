@@ -2,7 +2,7 @@ import { redirect } from "next/navigation";
 import { createClient } from "@/lib/supabase/server";
 import { ManagersList } from "@/components/managers-list";
 import { AdminLayoutAuth } from "@/components/admin-layout-auth";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type Manager = Tables<"profiles">;
 

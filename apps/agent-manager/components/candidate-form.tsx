@@ -1,11 +1,11 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 import {
   createCandidate,
   updateCandidate,
 } from "@/lib/actions/candidate-actions";
-import { getErrorMessage } from "@/lib/form-utils";
+import { getErrorMessage } from "@/utils";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";

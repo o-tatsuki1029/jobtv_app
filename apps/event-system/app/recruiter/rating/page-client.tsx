@@ -13,7 +13,7 @@ import { SelectInput } from "@/components/ui/form/FormField";
 import { formatEventDisplay } from "@/utils/data/event";
 import { Event } from "@/types/event.types";
 import { RATING_NUMBER_MAP } from "@/types/rating.types";
-import type { Database } from "@/types/database.types";
+import type { Database } from "@/types";
 
 type Company = {
   id: string;

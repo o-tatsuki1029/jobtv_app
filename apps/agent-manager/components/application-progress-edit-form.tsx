@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 import { createClient } from "@/lib/supabase/client";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
@@ -47,7 +47,7 @@ export function ApplicationProgressEditForm({
 }: ApplicationProgressEditFormProps) {
   const [status, setStatus] = useState(initialData.status);
   const [statusDate, setStatusDate] = useState(
-    initialData.status_date.split("T")[0]
+    initialData.status_date.split("T")[0],
   );
   const [notes, setNotes] = useState(initialData.notes || "");
   const [error, setError] = useState<string | null>(null);
@@ -85,7 +85,7 @@ export function ApplicationProgressEditForm({
         throw new Error(
           `更新エラー: ${updateError.message} (${
             updateError.code || "unknown"
-          })`
+          })`,
         );
       }
 
@@ -108,7 +108,7 @@ export function ApplicationProgressEditForm({
         if (applicationUpdateError) {
           console.warn(
             "進捗履歴は更新されましたが、応募ステータスの更新に失敗しました:",
-            applicationUpdateError.message
+            applicationUpdateError.message,
           );
         }
       }

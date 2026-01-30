@@ -1,5 +1,5 @@
 import { createClient } from "@/lib/supabase/server";
-import { getAdminClient } from "@/lib/supabase/admin";
+import { getAdminClient } from "@jobtv-app/shared/supabase/admin";
 import { Event } from "@/types/event.types";
 
 type EventWithName = Event & {

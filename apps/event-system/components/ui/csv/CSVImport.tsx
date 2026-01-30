@@ -6,7 +6,7 @@ import Button from "@/components/ui/Button";
 import { supabaseInsert } from "@/lib/actions/supabase-actions";
 import { downloadCSVAsShiftJIS } from "@/utils/data/csv";
 import { useModal } from "@/hooks/useModal";
-import { Database } from "@/types/database.types";
+import { Database } from "@/types";
 
 type CSVImportProps<T> = {
   tableName: string;

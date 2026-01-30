@@ -3,7 +3,7 @@
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { FileText, Calendar, MapPin, User } from "lucide-react";
-import type { ProgressItemWithRelations } from "@/types";
+import type { ProgressItemWithRelations } from "@jobtv-app/shared/types";
 
 type ProgressHistoryItem = ProgressItemWithRelations;
 

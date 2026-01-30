@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { getAdminClient } from "@/lib/supabase/admin";
+import { getAdminClient } from "@jobtv-app/shared/supabase/admin";
 import { sanitizeString, isValidUUID } from "@/utils/validation/sanitize";
 import { checkRateLimit } from "@/utils/validation/rate-limit";
 import { headers } from "next/headers";

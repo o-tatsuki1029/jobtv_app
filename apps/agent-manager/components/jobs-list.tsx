@@ -16,7 +16,7 @@ import Link from "next/link";
 import { JobForm } from "@/components/job-form";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type JobPosting = Tables<"job_postings">;
 

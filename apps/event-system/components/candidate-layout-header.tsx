@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Suspense } from "react";
 import Button from "@/components/ui/Button";
 import { cookies } from "next/headers";
-import { getAdminClient } from "@/lib/supabase/admin";
+import { getAdminClient } from "@jobtv-app/shared/supabase/admin";
 import { ROLE_LABELS } from "@jobtv-app/shared/auth";
 import { redirect } from "next/navigation";
 

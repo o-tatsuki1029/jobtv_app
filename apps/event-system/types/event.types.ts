@@ -1,4 +1,4 @@
-import type { Database, TablesInsert } from "@/types/database.types";
+import type { Database, TablesInsert } from "@jobtv-app/shared/types";
 
 export type Event = Database["public"]["Tables"]["events"]["Row"];
 

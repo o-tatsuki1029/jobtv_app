@@ -120,21 +120,46 @@ npx pnpm@latest --filter event-system build
 npx pnpm@latest --filter jobtv build
 ```
 
+## マイグレーション管理
+
+### Supabase のセットアップ
+
+```bash
+# Supabase CLIのインストール
+npm install -g supabase
+
+# プロジェクトへのリンク
+supabase link --project-ref tdewumilkltljbqryjpg
+
+# ログイン
+supabase login
+```
+
+### マイグレーションの作成と適用
+
+```bash
+# 新しいマイグレーションの作成
+supabase migration new <migration_name>
+
+# マイグレーションの適用
+supabase db push
+
+# マイグレーション履歴の確認
+supabase migration list
+```
+
+**重要**: マイグレーションは必ず monorepo ルート（`jobtv-app/supabase/migrations/`）で管理してください。
+
 ## 型定義の生成
 
-### 全アプリの型定義を生成
+マイグレーション適用後、必ず型定義を更新してください：
 
 ```bash
-npx pnpm@latest types
+# monorepoルートで実行
+pnpm types
 ```
 
-### 個別のアプリの型定義を生成
-
-```bash
-npx pnpm@latest --filter agent-manager types
-npx pnpm@latest --filter event-system types
-npx pnpm@latest --filter jobtv types
-```
+このコマンドは`packages/shared/types/database.types.ts`を生成します。
 
 ## プロジェクト構造
 

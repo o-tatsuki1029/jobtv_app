@@ -5,7 +5,7 @@ import Table from "@/components/ui/table/Table";
 import Button from "@/components/ui/Button";
 import { useModal } from "@/hooks/useModal";
 import { createClient } from "@/lib/supabase/client";
-import type { Database } from "@jobtv-app/shared/types";
+import type { Database } from "@/types";
 import MasterAreaFormModal from "./MasterAreaFormModal";
 
 type MasterArea = Database["public"]["Tables"]["master_areas"]["Row"];
@@ -40,7 +40,7 @@ export default function MasterAreasTab({
       setEditingArea(area);
       editModal.open();
     },
-    [editModal]
+    [editModal],
   );
 
   const handleDelete = useCallback(
@@ -67,7 +67,7 @@ export default function MasterAreasTab({
         alert("削除に失敗しました");
       }
     },
-    [onRefresh]
+    [onRefresh],
   );
 
   const handleToggleActive = useCallback(
@@ -90,7 +90,7 @@ export default function MasterAreasTab({
         alert("更新に失敗しました");
       }
     },
-    [onRefresh]
+    [onRefresh],
   );
 
   const displayData = areas.map((area) => ({
@@ -162,4 +162,3 @@ export default function MasterAreasTab({
     </div>
   );
 }
-

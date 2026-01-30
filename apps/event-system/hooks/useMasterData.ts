@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useCallback } from "react";
 import { createClient } from "@/lib/supabase/client";
-import type { Database } from "@jobtv-app/shared/types";
+import type { Database } from "@/types";
 
 type MasterArea = Database["public"]["Tables"]["master_areas"]["Row"];
 type MasterGraduationYear = Database["public"]["Tables"]["master_graduation_years"]["Row"];

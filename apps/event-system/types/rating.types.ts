@@ -1,4 +1,4 @@
-import { Database, TablesInsert, TablesUpdate } from "@/types/database.types";
+import { Database, TablesInsert, TablesUpdate } from "@jobtv-app/shared/types";
 
 // ratings_recruiter_to_candidate テーブル（旧名：ratings_recruiter_to_jobseeker）
 export type Rating = Database["public"]["Tables"]["ratings_recruiter_to_candidate"]["Row"];

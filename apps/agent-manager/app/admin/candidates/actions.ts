@@ -1,6 +1,6 @@
 "use server";
 
-import { createAdminClient } from "@/lib/supabase/admin";
+import { createAdminClient } from "@jobtv-app/shared/supabase/admin";
 
 export async function createCandidateUser(email: string) {
   const supabase = createAdminClient();

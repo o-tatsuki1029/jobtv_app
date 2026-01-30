@@ -1,6 +1,6 @@
 import { cookies } from "next/headers";
 import { createClient } from "@/lib/supabase/server";
-import { getAdminClient } from "@/lib/supabase/admin";
+import { getAdminClient } from "@jobtv-app/shared/supabase/admin";
 
 export async function getCandidateInfo() {
   const cookieStore = await cookies();

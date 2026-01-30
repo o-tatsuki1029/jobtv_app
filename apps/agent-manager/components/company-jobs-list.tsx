@@ -4,11 +4,11 @@ import {
   getApplicationStatusLabel,
   getApplicationStatusBadgeVariant,
   getJobStatusLabel,
-} from "@/lib/status-utils";
+} from "@/utils/status";
 import {
   getCandidateDisplayName,
   getCandidateDisplayKana,
-} from "@/lib/candidate-utils";
+} from "@/utils";
 import { Button } from "@/components/ui/button";
 import {
   Dialog,
@@ -39,7 +39,7 @@ import {
   getJobApplications,
   getMultipleJobApplications,
 } from "@/lib/actions/job-actions";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type Job = Tables<"job_postings">;
 type Company = Tables<"companies">;

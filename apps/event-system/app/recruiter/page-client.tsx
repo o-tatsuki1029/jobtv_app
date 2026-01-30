@@ -6,7 +6,7 @@ import { FormField } from "@/components/ui/form/FormField";
 import { SelectInput } from "@/components/ui/form/FormField";
 import { formatEventDisplay } from "@/utils/data/event";
 import type { Event } from "@/types/event.types";
-import type { Database } from "@/types/database.types";
+import type { Database } from "@/types";
 import Button from "@/components/ui/Button";
 import { useSessionStorage } from "@/hooks/useSessionStorage";
 import RecruiterGuide from "@/components/recruiter/RecruiterGuide";

@@ -6,7 +6,7 @@ import ModalHeader from "@/components/ui/modals/ModalHeader";
 import Button from "@/components/ui/Button";
 import { FormField, TextInput } from "@/components/ui/form/FormField";
 import { createClient } from "@/lib/supabase/client";
-import type { Database } from "@jobtv-app/shared/types";
+import type { Database } from "@/types";
 
 type MasterArea = Database["public"]["Tables"]["master_areas"]["Row"];
 

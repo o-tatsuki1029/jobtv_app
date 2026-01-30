@@ -1,5 +1,5 @@
 import { cookies } from "next/headers";
-import { getAdminClient } from "@/lib/supabase/admin";
+import { getAdminClient } from "@jobtv-app/shared/supabase/admin";
 import { createClient } from "@/lib/supabase/server";
 
 export async function saveRecruiterRating(

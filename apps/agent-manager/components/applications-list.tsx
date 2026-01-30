@@ -8,8 +8,8 @@ import { FileText, User, Briefcase, Building2 } from "lucide-react";
 import {
   getApplicationStatusLabel,
   getApplicationStatusBadgeVariant,
-} from "@/lib/status-utils";
-import type { Tables } from "@/types";
+} from "@/utils/status";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type ApplicationRow = Tables<"applications">;
 

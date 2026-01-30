@@ -9,7 +9,7 @@ import {
   getCandidate,
   getCandidateApplications,
 } from "@/lib/actions/candidate-actions";
-import { getCandidateDisplayName } from "@/lib/candidate-utils";
+import { getCandidateDisplayName } from "@/utils";
 
 interface CandidateDetailContentProps {
   id: string;

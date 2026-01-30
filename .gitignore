@@ -54,3 +54,9 @@ Thumbs.db
 package-lock.json
 yarn.lock
 
+# Supabase
+supabase/.branches
+supabase/.temp
+supabase/functions/
+supabase/seed.sql
+

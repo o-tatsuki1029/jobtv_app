@@ -18,4 +18,3 @@ export interface UserInfo {
   companyId?: string;
   isAdmin: boolean;
 }
-

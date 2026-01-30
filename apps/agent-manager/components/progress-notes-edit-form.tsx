@@ -6,7 +6,7 @@ import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";
 import { Input } from "@/components/ui/input";
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 
 interface ProgressNotesEditFormProps {
   progressId: string;
@@ -27,7 +27,7 @@ export function ProgressNotesEditForm({
   const [statusDate, setStatusDate] = useState(
     initialStatusDate
       ? new Date(initialStatusDate).toISOString().split("T")[0]
-      : new Date().toISOString().split("T")[0]
+      : new Date().toISOString().split("T")[0],
   );
   const [error, setError] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
@@ -61,7 +61,7 @@ export function ProgressNotesEditForm({
         throw new Error(
           `更新エラー: ${updateError.message} (${
             updateError.code || "unknown"
-          })`
+          })`,
         );
       }
 

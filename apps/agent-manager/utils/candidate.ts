@@ -2,7 +2,7 @@
  * 求職者情報の表示用ユーティリティ関数
  */
 
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type CandidateBase = Pick<
   Tables<"candidates">,

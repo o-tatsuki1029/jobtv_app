@@ -2,7 +2,7 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { insertRecord, updateRecord } from "./supabase-actions";
-import type { TablesInsert } from "@/types";
+import type { TablesInsert } from "@jobtv-app/shared/types";
 
 export type JobData = Partial<TablesInsert<"job_postings">> & { id?: string };
 

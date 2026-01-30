@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { CandidateForm } from "@/components/candidate-form";
 import { useRouter } from "next/navigation";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 interface CandidateDetailModalProps {
   candidateId: string | null;

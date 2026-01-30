@@ -1,8 +1,7 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn, getErrorMessage } from "@/utils";
 import { createClient } from "@/lib/supabase/client";
-import { getErrorMessage } from "@/lib/form-utils";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 import { Textarea } from "@/components/ui/textarea";

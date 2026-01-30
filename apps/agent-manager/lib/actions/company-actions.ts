@@ -2,18 +2,25 @@
 
 import { createClient } from "@/lib/supabase/server";
 import { insertRecord, updateRecord, queryTable } from "./supabase-actions";
-import type { TablesInsert } from "@/types";
+import type { Tables, TablesInsert } from "@jobtv-app/shared/types";
 
-export type CompanyData = Partial<TablesInsert<"companies">> & { id?: string };
+export type Company = Tables<"companies">;
+export type CompanyInsert = Partial<TablesInsert<"companies">>;
+// 後方互換性のためのエイリアス
+export type CompanyData = Company;
 
 /**
  * 企業一覧を取得
  */
-export async function getCompanies() {
-  return queryTable<CompanyData>("companies", {
+export async function getCompanies(): Promise<{
+  data: Company[] | null;
+  error: string | null;
+}> {
+  const result = await queryTable("companies", {
     select: "*",
     order: { column: "created_at", ascending: false },
   });
+  return result as { data: Company[] | null; error: string | null };
 }
 
 /**
@@ -33,7 +40,7 @@ export async function getCompany(id: string) {
     return { data: null, error: error.message };
   }
 
-  return { data: data as CompanyData, error: null };
+  return { data: data as Company, error: null };
 }
 
 /**
@@ -59,13 +66,13 @@ export async function getCompanyJobs(companyId: string) {
 /**
  * 企業を作成
  */
-export async function createCompany(data: Omit<CompanyData, "id">) {
-  return insertRecord<CompanyData>("companies", data, ["/admin/companies"]);
+export async function createCompany(data: CompanyInsert) {
+  return insertRecord<Company>("companies", data, ["/admin/companies"]);
 }
 
 /**
  * 企業を更新
  */
-export async function updateCompany(id: string, data: Partial<CompanyData>) {
-  return updateRecord<CompanyData>("companies", id, data, ["/admin/companies"]);
+export async function updateCompany(id: string, data: CompanyInsert) {
+  return updateRecord<Company>("companies", id, data, ["/admin/companies"]);
 }

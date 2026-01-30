@@ -1,4 +1,4 @@
-import { Database, TablesInsert } from "@/types/database.types";
+import { Database, TablesInsert } from "@jobtv-app/shared/types";
 
 // candidates テーブルの型定義
 export type Candidate = Database["public"]["Tables"]["candidates"]["Row"];

@@ -9,7 +9,7 @@ import {
   sortCompaniesByCount,
   type CompanyWithRecruiterCount,
 } from "@/utils/sort/company";
-import type { PaginationInfo } from "@/types/common.types";
+import type { PaginationInfo } from "@jobtv-app/shared/types";
 
 type SortInfo<T> = {
   sortKey: keyof T;

@@ -5,7 +5,7 @@ import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { FileText, Briefcase } from "lucide-react";
 import Link from "next/link";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type ApplicationRow = Tables<"applications">;
 

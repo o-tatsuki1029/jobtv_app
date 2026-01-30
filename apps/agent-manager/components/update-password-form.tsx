@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 import { updatePassword } from "@/lib/actions/auth-actions";
 import { Button } from "@/components/ui/button";
 import {

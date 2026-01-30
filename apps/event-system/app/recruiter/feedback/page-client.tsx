@@ -9,7 +9,7 @@ import { useSessionStorage } from "@/hooks/useSessionStorage";
 import { formatEventDisplay } from "@/utils/data/event";
 import { Event } from "@/types/event.types";
 import StarRating from "@/components/ui/modals/StarRating";
-import type { Database } from "@/types/database.types";
+import type { Database } from "@/types";
 
 type CompanyOption = {
   id: string;

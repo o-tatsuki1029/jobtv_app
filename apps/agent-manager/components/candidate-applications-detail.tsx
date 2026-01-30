@@ -35,7 +35,7 @@ import type {
   ApplicationWithRelations,
   ProgressItemWithRelations,
   InterviewNoteWithRelations,
-} from "@/types";
+} from "@jobtv-app/shared/types";
 
 interface CandidateApplicationsDetailProps {
   candidateId: string;

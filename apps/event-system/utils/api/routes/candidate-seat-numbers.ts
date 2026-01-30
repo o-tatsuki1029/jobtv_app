@@ -1,4 +1,4 @@
-import { getAdminClient } from "@/lib/supabase/admin";
+import { getAdminClient } from "@jobtv-app/shared/supabase/admin";
 
 export async function getCandidateSeatNumbers(eventId: string) {
   if (!eventId) {

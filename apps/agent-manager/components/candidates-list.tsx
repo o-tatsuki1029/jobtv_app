@@ -16,7 +16,7 @@ import Link from "next/link";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import type { CandidateData } from "@/lib/actions/candidate-actions";
-import { getCandidateDisplayName } from "@/lib/candidate-utils";
+import { getCandidateDisplayName } from "@/utils";
 
 type Candidate = CandidateData & { id: string };
 

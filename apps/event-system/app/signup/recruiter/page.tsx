@@ -11,12 +11,12 @@ import {
   SelectInput,
 } from "@/components/ui/form/FormField";
 import { isKatakana } from "@/utils/validation/index";
-import { translateAuthError } from "@jobtv-app/shared/auth";
+import { translateAuthError } from "@jobtv-app/shared/auth/client";
 import {
   validateEmail,
   validatePassword,
   validatePasswordConfirm,
-} from "@/utils/auth/validation";
+} from "@jobtv-app/shared/utils/validation";
 
 type Company = {
   id: string;
@@ -94,7 +94,7 @@ export default function RecruiterSignupPage() {
 
     const passwordConfirmError = validatePasswordConfirm(
       formData.password,
-      formData.confirmPassword
+      formData.confirmPassword,
     );
     if (passwordConfirmError) newErrors.confirmPassword = passwordConfirmError;
 
@@ -123,7 +123,7 @@ export default function RecruiterSignupPage() {
           options: {
             data: { role: "recruiter" },
           },
-        }
+        },
       );
 
       if (signUpError) {
@@ -135,7 +135,7 @@ export default function RecruiterSignupPage() {
       if (!authData.user) {
         if (authData.session === null) {
           router.push(
-            "/login?message=登録が完了しました。メールアドレスを確認してからログインしてください。"
+            "/login?message=登録が完了しました。メールアドレスを確認してからログインしてください。",
           );
           return;
         }
@@ -189,7 +189,7 @@ export default function RecruiterSignupPage() {
       router.push(
         authData.session === null
           ? "/login?message=登録が完了しました。メールアドレスを確認してからログインしてください。"
-          : "/login?message=登録が完了しました。ログインしてください。"
+          : "/login?message=登録が完了しました。ログインしてください。",
       );
     } catch (error: unknown) {
       console.error("登録エラー:", error);

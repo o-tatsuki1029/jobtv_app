@@ -1,7 +1,7 @@
 "use server";
 
 import { createClient } from "@/lib/supabase/server";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 export type ManagerData = Tables<"profiles">;
 

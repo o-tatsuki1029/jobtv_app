@@ -36,7 +36,7 @@ import { getInterviewNotes } from "@/lib/actions/candidate-actions";
 import type {
   ApplicationWithRelations,
   InterviewNoteWithRelations,
-} from "@/types";
+} from "@jobtv-app/shared/types";
 
 type Application = ApplicationWithRelations;
 type InterviewNote = InterviewNoteWithRelations;

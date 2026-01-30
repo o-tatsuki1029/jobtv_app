@@ -11,7 +11,7 @@ import {
 } from "@/components/ui/dialog";
 import { JobForm } from "@/components/job-form";
 import { useRouter } from "next/navigation";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 interface JobDetailModalProps {
   jobId: string | null;

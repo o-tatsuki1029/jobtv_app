@@ -13,3 +13,4 @@ export function getUnauthenticatedRedirectUrl(
   loginUrl.searchParams.set("redirect", pathname);
   return loginUrl;
 }
+

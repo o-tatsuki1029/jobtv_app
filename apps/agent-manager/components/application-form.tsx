@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 import { getCompanyActiveJobs } from "@/lib/actions/job-actions";
 import { getCompanies } from "@/lib/actions/company-actions";
 import { createApplication } from "@/lib/actions/candidate-actions";
@@ -36,9 +36,8 @@ export function ApplicationForm({
     name: string;
   } | null>(null);
   const [jobPostingId, setJobPostingId] = useState("");
-  const [companies, setCompanies] = useState<
-    Array<{ id: string; name: string }>
-  >([]);
+  type CompanyOption = { id: string; name: string };
+  const [companies, setCompanies] = useState<CompanyOption[]>([]);
   const [jobs, setJobs] = useState<
     Array<{ id: string; title: string; company_id: string }>
   >([]);
@@ -52,9 +51,7 @@ export function ApplicationForm({
       const { data, error } = await getCompanies();
       if (!error && data) {
         setCompanies(
-          data
-            .filter((c): c is typeof c & { id: string; name: string } => !!c.id && !!c.name)
-            .map((c) => ({ id: c.id, name: c.name }))
+          data.map((c) => ({ id: c.id, name: c.name }))
         );
       }
     };

@@ -3,7 +3,7 @@
  */
 
 import { createClient } from "@/lib/supabase/server";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type Company = Pick<Tables<"companies">, "id" | "name">;
 type AdminUser = Pick<Tables<"profiles">, "id" | "email" | "full_name">;
@@ -35,3 +35,4 @@ export async function fetchAdminUsersServer(): Promise<AdminUser[]> {
 
   return profiles || [];
 }
+

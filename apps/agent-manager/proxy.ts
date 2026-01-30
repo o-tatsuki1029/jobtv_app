@@ -1,5 +1,5 @@
 import { NextResponse, type NextRequest } from "next/server";
-import { getUnauthenticatedRedirectUrl } from "@/lib/utils/auth/redirect";
+import { getUnauthenticatedRedirectUrl } from "@/utils/auth/redirect";
 
 // Basic認証のチェック関数
 function checkBasicAuth(request: NextRequest): boolean {
@@ -11,7 +11,7 @@ function checkBasicAuth(request: NextRequest): boolean {
 
   const base64Credentials = authHeader.split(" ")[1];
   const credentials = Buffer.from(base64Credentials, "base64").toString(
-    "ascii"
+    "ascii",
   );
   const [username, password] = credentials.split(":");
 
@@ -71,7 +71,7 @@ export async function proxy(request: NextRequest) {
     "/auth/error",
   ];
   const isPublicRoute = publicRoutes.some((route) =>
-    pathname.startsWith(route)
+    pathname.startsWith(route),
   );
 
   // パスワードリセットページは認証不要（ハッシュパラメータを処理するため）
@@ -97,7 +97,7 @@ export async function proxy(request: NextRequest) {
       hasSessionCookie = cookies.some(
         (c) =>
           c.name.startsWith(`sb-${projectRef}-auth-token`) ||
-          c.name.startsWith(`sb-${projectRef}-auth-token-code-verifier`)
+          c.name.startsWith(`sb-${projectRef}-auth-token-code-verifier`),
       );
     }
   }
@@ -106,7 +106,7 @@ export async function proxy(request: NextRequest) {
   if (!hasSessionCookie) {
     if (!isPublicRoute && pathname !== "/") {
       return NextResponse.redirect(
-        getUnauthenticatedRedirectUrl(pathname, request.url)
+        getUnauthenticatedRedirectUrl(pathname, request.url),
       );
     }
     return response;

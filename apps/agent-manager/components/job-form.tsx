@@ -1,6 +1,6 @@
 "use client";
 
-import { cn } from "@/lib/utils";
+import { cn } from "@/utils";
 import { getCompanies } from "@/lib/actions/company-actions";
 import { createJob, updateJob } from "@/lib/actions/job-actions";
 import { Button } from "@/components/ui/button";

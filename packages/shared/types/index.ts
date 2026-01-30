@@ -28,6 +28,21 @@ export type {
   ApplicationWithRelations,
   ProgressItemWithRelations,
   InterviewNoteWithRelations,
-  InterviewNote,
 } from "./database-extensions";
+
+// 共通ヘルパー型をエクスポート
+export type {
+  TableName,
+  TableRow,
+  TableInsert,
+  TableUpdate,
+  FormData,
+  PaginationInfo,
+  SortInfo,
+  ApiResponse,
+  User,
+} from "./common-helpers";
+
+// 後方互換性のためのエイリアス
+export type { CAInterview as InterviewNote } from "./database-extensions";
 

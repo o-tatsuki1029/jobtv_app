@@ -1,4 +1,4 @@
-import { getCandidateDisplayName } from "@/lib/candidate-utils";
+import { getCandidateDisplayName } from "@/utils";
 
 interface CandidateInfoDisplayProps {
   candidate: {

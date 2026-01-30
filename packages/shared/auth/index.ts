@@ -13,4 +13,3 @@ export {
   requireRecruiterOrAdmin,
   requireCandidate,
 } from "./require-auth";
-

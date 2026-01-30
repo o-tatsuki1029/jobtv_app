@@ -3,15 +3,15 @@ import { createClient } from "@/lib/supabase/server";
 import {
   getApplicationStatusLabel,
   getApplicationStatusBadgeVariant,
-} from "@/lib/status-utils";
+} from "@/utils/status";
 import { Card, CardContent } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { FileText, ArrowLeft } from "lucide-react";
 import Link from "next/link";
-import type { Tables } from "@/types";
-import { getCandidateDisplayName } from "@/lib/candidate-utils";
+import type { Tables } from "@jobtv-app/shared/types";
+import { getCandidateDisplayName } from "@/utils";
 
 interface JobApplicationsContentProps {
   jobId: string;

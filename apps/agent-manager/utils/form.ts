@@ -1,4 +1,8 @@
 /**
+ * フォーム関連のユーティリティ関数
+ */
+
+/**
  * エラーオブジェクトからエラーメッセージを取得するユーティリティ関数
  * @param error - エラーオブジェクト（unknown型）
  * @returns エラーメッセージの文字列
@@ -18,3 +22,4 @@ export function getErrorMessage(error: unknown): string {
 
   return "エラーが発生しました";
 }
+

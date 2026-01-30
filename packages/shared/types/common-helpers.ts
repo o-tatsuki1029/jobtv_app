@@ -1,8 +1,9 @@
 /**
- * 共通型定義
+ * 共通ヘルパー型定義
+ * データベーステーブルの型操作やページネーション、APIレスポンスなどの共通型
  */
 
-import { Database, TablesInsert, TablesUpdate } from "@/types/database.types";
+import { Database, TablesInsert, TablesUpdate } from "./index";
 
 /**
  * テーブル名の型
@@ -57,4 +58,9 @@ export type ApiResponse<T> = {
   data?: T;
   error?: string;
 };
+
+/**
+ * ユーザー型（profilesテーブル）
+ */
+export type User = Database["public"]["Tables"]["profiles"]["Row"];
 

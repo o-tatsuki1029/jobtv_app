@@ -5,7 +5,7 @@ import Table from "@/components/ui/table/Table";
 import Button from "@/components/ui/Button";
 import { useModal } from "@/hooks/useModal";
 import { createClient } from "@/lib/supabase/client";
-import type { Database } from "@jobtv-app/shared/types";
+import type { Database } from "@/types";
 import MasterEventTypeFormModal from "./MasterEventTypeFormModal";
 
 type MasterEventType = Database["public"]["Tables"]["master_event_types"]["Row"];

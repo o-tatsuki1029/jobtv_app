@@ -14,8 +14,8 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-import { cn } from "@/lib/utils";
-import type { Tables } from "@/types";
+import { cn } from "@/utils";
+import type { Tables } from "@jobtv-app/shared/types";
 
 interface InterviewNoteFormProps {
   candidateId: string;

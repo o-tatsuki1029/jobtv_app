@@ -15,7 +15,7 @@ import {
 } from "@/components/ui/select";
 import { UserCog } from "lucide-react";
 import { useRouter } from "next/navigation";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 type Manager = Tables<"profiles">;
 

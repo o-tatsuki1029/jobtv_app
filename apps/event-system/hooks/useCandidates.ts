@@ -1,7 +1,7 @@
 import { useState, useCallback, useEffect } from "react";
 import { createClient } from "@/lib/supabase/client";
 import type { Candidate } from "@/types/candidate.types";
-import type { PaginationInfo } from "@/types/common.types";
+import type { PaginationInfo } from "@jobtv-app/shared/types";
 
 type SortInfo<T> = {
   sortKey: keyof T;

@@ -6,8 +6,8 @@ import type {
   Profile,
   ProgressItemWithRelations,
   InterviewNoteWithRelations,
-} from "@/types";
-import type { TablesInsert } from "@/types";
+  TablesInsert,
+} from "@jobtv-app/shared/types";
 
 type ProgressItem = ProgressItemWithRelations;
 type InterviewNote = InterviewNoteWithRelations;

@@ -1,7 +1,7 @@
 import { createClient } from "@/lib/supabase/server";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Building2, Briefcase, Users, FileText } from "lucide-react";
-import type { Tables } from "@/types";
+import type { Tables } from "@jobtv-app/shared/types";
 
 export async function AdminDashboardContent() {
   const supabase = await createClient();

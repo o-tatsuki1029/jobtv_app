@@ -3,7 +3,7 @@ import { createClient } from "@/lib/supabase/server";
 import {
   getApplicationStatusLabel,
   getApplicationStatusBadgeVariant,
-} from "@/lib/status-utils";
+} from "@/utils/status";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
